@@ -1,10 +1,13 @@
 import { Button } from "@/components/ui/button";
+import Container from "@/components/Container";
 
 export default function Home() {
   return (
-   <div className="p-10">
-    <h2>Ecommerce site</h2>
+   <div>
+   <Container>
+     <h2>Ecommerce site</h2>
     <Button variant="destructive">Click Me</Button>
+   </Container>
    </div>
   );
 }

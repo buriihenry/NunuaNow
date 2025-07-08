@@ -9,6 +9,30 @@
 @import "tailwindcss";
 
 @theme inline {
+
+  --color-home_page: #C0C0C0;
+  --color-tech_orange: #ef4a23;
+  --color-tech_white: #ffffff;
+  --color-tech_black: #000000;
+  --color-tech_dark: #081621;
+  --color-tech_light_yellow: #fde8a1;
+  --color-tech_light_orange: #f9b6a0;
+  --color-tech_blue: #3749bb;
+  --color-tech_light_blue: #6d7bd4;
+  --color-tech_light_blue_2: #b8c0f7;
+
+  --color-tech_purple: #6e2594;
+  --color-tech_light_green: #3b9c3c;
+  --color-tech_dark_green: #1a5d1a;
+  --color-tech_lighter_green: #93d991;
+  --color-tech_dark_red: #f02757;
+  --color-tech_dark_color: #151515;
+  --color-tech_light_color: #52525b;
+  --color-tech_light_gray: #f5f5f5;
+  --color-tech_dark_gray: #1f2937;
+
+
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -121,5 +145,8 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  .hoverEffect{
+    @apply duration-300 ease-in-out transition-all cursor-pointer;
   }
 }
