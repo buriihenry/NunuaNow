@@ -12,8 +12,8 @@ import { ClerkLoaded, SignedIn, SignInButton, UserButton } from '@clerk/nextjs'
 const Header = async() => {
     const user = await currentUser()
   return (
-    <header className="flex gap-2 flex-wrap justify-between items-center py-2">
-    <Container className='flex items-center justify-between gap-5'>
+    <header className="flex  gap-2 flex-wrap justify-between items-center py-2">
+    <Container className='flex items-center justify-between gap-5 w-3/4'>
     <Link href={"/"}>
      <Image
     src={logo}
@@ -23,12 +23,12 @@ const Header = async() => {
     />
     
     </Link>
-    <Form action="/search" className='flex-1]'>
+    <Form action="/search" className='flex-1'>
         <input 
         type='text' 
         name="query" 
         placeholder='Search for products...'
-        className="bg-gray-50 text-gray-800 px-4 py-2.5 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 border border-gray-200 w-full max-w-4xl rounded-md hoverEffect"
+        className="w-full border-2 border-gray-200 px-4 py-2.5 rounded-md focus-visible:border-tech_blue outline-none"
         />
     </Form>
   <div className='flex items-center gap-5'>
