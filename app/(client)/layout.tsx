@@ -4,6 +4,7 @@ import "../globals.css";
 import Header from "@/components/Header";
 import { ClerkProvider } from "@clerk/nextjs";
 import Footer from "@/components/Footer";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,12 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <Toaster position="bottom-right" toastOptions={{
+          style:{
+            background: "#000000",
+            color: "#ffffff",
+          }
+        }}/>
       </body>
     </html>
     </ClerkProvider>
