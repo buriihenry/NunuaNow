@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "./ui/button";
 import { HiMinus, HiPlus } from "react-icons/hi2";
 import toast from "react-hot-toast";
-import useCartStore from "@/store";
+//import useCartStore from "@/store";
 import { Product } from "@/sanity.types";
 import { twMerge } from "tailwind-merge";
 
@@ -13,18 +13,17 @@ interface Props {
 }
 
 const QuantityButtons = ({ product, className, borderStyle }: Props) => {
-  const { addItem, removeItem, getItemCount } = useCartStore();
-  const itemCount = getItemCount(product?._id);
+  //const { addItem, removeItem, getItemCount } = useCartStore();
+  //const itemCount = getItemCount(product?._id);
   const isOutOfStock = product?.stock === 0;
 
   const handleRemoveProduct = () => {
-    removeItem(product?._id);
-    if (itemCount > 1) {
-      toast.success("Quantity Decreased successfully!");
-    } else {
-      toast.success(`${product?.name?.substring(0, 12)} removed successfully!`);
-    }
+   toast.success("Item removed from cart");
   };
+   const handleAddProduct = () => {
+   toast.success("Item Added to cart");
+  };
+  const itemCount = 0; // Placeholder for item count, replace with actual logic
   return (
     <div
       className={twMerge(
@@ -49,10 +48,7 @@ const QuantityButtons = ({ product, className, borderStyle }: Props) => {
         variant="outline"
         size="icon"
         className="w-6 h-6"
-        onClick={() => {
-          addItem(product);
-          toast.success("Quantity increased successfully!");
-        }}
+        onClick={handleAddProduct}
         disabled={isOutOfStock}
       >
         <HiPlus />

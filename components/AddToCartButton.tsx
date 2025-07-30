@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import { twMerge } from "tailwind-merge";
 import PriceFormatter from "./PriceFormatter";
 import { Button } from "./ui/button";
-import useCartStore from "@/store";
+//import useCartStore from "@/store";
 import QuantityButtons from "./QuantityButtons";
 
 interface Props {
@@ -14,15 +14,20 @@ interface Props {
 }
 
 const AddToCartButton = ({ product, className }: Props) => {
-  const { addItem, getItemCount } = useCartStore();
+  //const { addItem, getItemCount } = useCartStore();
+  const handleAddToCart = () => {
+    toast.success("Item added to cart");
+  }
   const [isClient, setIsClient] = useState(false);
 
-  const itemCount = getItemCount(product?._id);
+  //const itemCount = getItemCount(product?._id);
   const isOutOfStock = product?.stock === 0;
 
   // Use useEffect to set isClient to true after component mounts
   // This ensures that the component only renders on the client-side
   // Preventing hydration errors due to server/client mismatch
+
+  const itemCount = 5;
 
   useEffect(() => {
     setIsClient(true);
@@ -47,12 +52,7 @@ const AddToCartButton = ({ product, className }: Props) => {
         </div>
       ) : (
         <Button
-          onClick={() => {
-            addItem(product);
-            toast.success(
-              `${product?.name?.substring(0, 12)}... added successfully!`
-            );
-          }}
+          onClick={handleAddToCart}
           disabled={isOutOfStock}
           className={twMerge(
             "bg-darkBlue/10 border text-black border-darkBlue w-full py-2 mt-2 rounded-md font-medium hover:bg-darkBlue hover:text-white hoverEffect disabled:hover:cursor-not-allowed disabled:hover:bg-darkBlue/10 disabled:text-gray-400 disabled:hover:text-gray-400 disabled:border-darkBlue/10",
